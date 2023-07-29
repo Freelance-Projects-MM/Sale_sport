@@ -1,0 +1,16 @@
+.upload {
+  border: dashed rgb(173, 172, 172);
+  padding-left: p-l-35;
+  .UpladBTN {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    .imageUpload {
+      img {
+        margin-top: -2rem;
+        width: 15%;
+        cursor: pointer;
+      }
+    }
+  }
+}
