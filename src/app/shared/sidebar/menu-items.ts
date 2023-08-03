@@ -102,6 +102,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+  */
   {
     path: '/component/table',
     title: 'Table',
@@ -109,10 +110,18 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  },*/
+  },
   {
     path: '/about',
     title: 'About',
+    icon: 'bi bi-people',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/depot',
+    title: 'Depot',
     icon: 'bi bi-people',
     class: '',
     extralink: false,

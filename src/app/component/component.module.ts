@@ -18,6 +18,8 @@ import { UploadFileComponent } from './file/upload-file/upload-file.component';
 import { ListFilesComponent } from './file/list-files/list-files.component';
 import { ListProduitsComponent } from './produits/list-produits/list-produits.component';
 import { AddUpdateProduitComponent } from './produits/add-update-produit/add-update-produit.component';
+import { ListDepoComponent } from './depo/list-depo/list-depo.component';
+import { AddEditDepotComponent } from './depo/add-edit-depot/add-edit-depot.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { AddUpdateProduitComponent } from './produits/add-update-produit/add-upd
     UploadFileComponent,
     ListFilesComponent,
     ListProduitsComponent,
-    AddUpdateProduitComponent
+    AddUpdateProduitComponent,
+    ListDepoComponent,
+    AddEditDepotComponent
   ]
 })
 export class ComponentsModule { }

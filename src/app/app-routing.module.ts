@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
+import {LoginComponent} from "./authentification/login/login.component";
 
 export const Approutes: Routes = [
   {
@@ -22,6 +23,9 @@ export const Approutes: Routes = [
         loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
       }
     ]
+  },
+  {path:'login',
+  component:LoginComponent
   },
   {
     path: '**',
