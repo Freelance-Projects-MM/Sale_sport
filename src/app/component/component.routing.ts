@@ -12,6 +12,7 @@ import {CalendrierComponent} from "./calendrier/calendrier.component";
 import {UploadFileComponent} from "./file/upload-file/upload-file.component";
 import {ListFilesComponent} from "./file/list-files/list-files.component";
 import {ListDepoComponent} from "./depo/list-depo/list-depo.component";
+import {AddEditDepotComponent} from "./depo/add-edit-depot/add-edit-depot.component";
 
 
 export const ComponentsRoutes: Routes = [
@@ -64,6 +65,10 @@ export const ComponentsRoutes: Routes = [
       } , {
         path:'depot',
         component : ListDepoComponent
+      },
+      {
+        path:'AddDepot',
+        component : AddEditDepotComponent
       }
 		]
 	}

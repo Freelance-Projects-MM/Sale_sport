@@ -13,4 +13,7 @@ export class DepotService {
   listDepot(): Observable<any>{
     return this.http.get(URLS.listDepot);
   }
+  listUsers(): Observable<any>{
+    return this.http.get(URLS.listUsers);
+  }
 }

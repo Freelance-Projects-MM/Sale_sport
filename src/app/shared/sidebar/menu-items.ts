@@ -1,7 +1,7 @@
 import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
-  {
+  /*{
     path: '/component/importerDoc',
     title: 'Importer docs',
     icon: 'bi bi-cloud-upload',
@@ -17,6 +17,23 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+   ,{
+    path: '/component/calandrier',
+    title: 'Calandrier',
+    icon: 'bi bi-bell',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+    {
+    path: '/component/importerDoc',
+    title: 'Importer docs',
+    icon: 'bi bi-cloud-upload',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  */
 
 {
     path: '/dashboard',
@@ -26,16 +43,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   }
-  ,{
-    path: '/component/calandrier',
-    title: 'Calandrier',
-    icon: 'bi bi-bell',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-
-  /*
+ ,
   {
     path: '/component/alert',
     title: 'Alert',
@@ -45,14 +53,10 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
 
-  {
-    path: '/component/importerDoc',
-    title: 'Importer docs',
-    icon: 'bi bi-cloud-upload',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+
+
+
+
 
   {
     path: '/component/badges',
@@ -102,7 +106,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  */
+
   {
     path: '/component/table',
     title: 'Table',
@@ -127,5 +131,6 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   }
+
 
 ];
