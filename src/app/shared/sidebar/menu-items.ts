@@ -1,42 +1,8 @@
 import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
-  {
-    path: '/component/importerDoc',
-    title: 'Importer docs',
-    icon: 'bi bi-cloud-upload',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/listDoc',
-    title: 'List docs',
-    icon: 'bi bi-file-earmark',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-
-{
-    path: '/dashboard',
-    title: 'Dashboard',
-    icon: 'bi bi-speedometer2',
-    class: '',
-    extralink: false,
-    submenu: []
-  }
-  ,{
-    path: '/component/calandrier',
-    title: 'Calandrier',
-    icon: 'bi bi-bell',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-
   /*
-  {
+    {
     path: '/component/alert',
     title: 'Alert',
     icon: 'bi bi-bell',
@@ -45,14 +11,10 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
 
-  {
-    path: '/component/importerDoc',
-    title: 'Importer docs',
-    icon: 'bi bi-cloud-upload',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+
+
+
+
 
   {
     path: '/component/badges',
@@ -102,7 +64,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  */
+
   {
     path: '/component/table',
     title: 'Table',
@@ -120,8 +82,70 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+
+    path: '/component/importerDoc',
+    title: 'Importer docs',
+    icon: 'bi bi-cloud-upload',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/listDoc',
+    title: 'List docs',
+    icon: 'bi bi-file-earmark',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+   ,{
+    path: '/component/calandrier',
+    title: 'Calandrier',
+    icon: 'bi bi-bell',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+    {
+    path: '/component/importerDoc',
+    title: 'Importer docs',
+    icon: 'bi bi-cloud-upload',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  */
+
+  {
+    path: '/dashboard',
+    title: 'Dashboard',
+    icon: 'bi bi-speedometer2',
+    class: '',
+    extralink: false,
+    submenu: []
+  }
+  ,
+  {
+    path: '/component/produit',
+    title: 'Produit',
+    icon: 'bi bi-people',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+
+  {
     path: '/component/depot',
     title: 'Depot',
+    icon: 'bi bi-people',
+    class: '',
+    extralink: false,
+    submenu: []
+  }
+,
+  {
+    path: '/component/client',
+    title: 'Client',
     icon: 'bi bi-people',
     class: '',
     extralink: false,

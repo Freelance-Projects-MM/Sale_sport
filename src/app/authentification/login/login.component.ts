@@ -33,8 +33,12 @@ export class LoginComponent implements OnInit {
     }
     this.authentificationService.login(data).subscribe(res =>{
       console.log(res);
+      if(res.status === 'true'){
+        sessionStorage.setItem("token",res.access_Token);
+        this.route.navigateByUrl('/dashboard');
+      }
     })
-    this.route.navigateByUrl('/dashboard');
+
   }
 
 }

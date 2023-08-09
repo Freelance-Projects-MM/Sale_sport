@@ -1,1 +1,69 @@
-<p>add-update-produit works!</p>
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Ajouter un nouveau produit</h4>
+      <button
+        type="button"
+        class="btn btn-success " (click)="saveProduit()"
+      >
+        Enregistrer
+      </button>
+
+    </div>
+    <div class="container">
+      <form [formGroup]="produitGroupe" >
+        <div class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Code</span>
+            </div>
+            <input type="text" class="form-control" formControlName="code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm12">Libelle</span>
+            </div>
+            <input type="text" class="form-control" formControlName="libell" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm13">Prix vente</span>
+            </div>
+            <input type="number" class="form-control" formControlName="prixVente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+        <div style="margin-top: 2%" class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm131">Quantite initiale</span>
+            </div>
+            <input type="number" class="form-control" formControlName="quantiteInitiale" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm2">Quantite</span>
+            </div>
+            <input type="text" class="form-control" formControlName="quantite" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+
+            <label>Statut <span>*</span></label>
+            <ng-select  formControlName="depot">
+              <ng-option *ngFor="let option of cities"
+                         [value]="option">
+                {{ option.name }}
+              </ng-option>
+            </ng-select>
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+
+
+
+  </div>
+</div>

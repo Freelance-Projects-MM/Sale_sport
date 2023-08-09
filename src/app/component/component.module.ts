@@ -20,6 +20,8 @@ import { ListProduitsComponent } from './produits/list-produits/list-produits.co
 import { AddUpdateProduitComponent } from './produits/add-update-produit/add-update-produit.component';
 import { ListDepoComponent } from './depo/list-depo/list-depo.component';
 import { AddEditDepotComponent } from './depo/add-edit-depot/add-edit-depot.component';
+import { TierListComponent } from './tier/tier-list/tier-list.component';
+import { AddEditTierComponent } from './tier/add-edit-tier/add-edit-tier.component';
 
 @NgModule({
   imports: [
@@ -44,7 +46,9 @@ import { AddEditDepotComponent } from './depo/add-edit-depot/add-edit-depot.comp
     ListProduitsComponent,
     AddUpdateProduitComponent,
     ListDepoComponent,
-    AddEditDepotComponent
+    AddEditDepotComponent,
+    TierListComponent,
+    AddEditTierComponent
   ]
 })
 export class ComponentsModule { }

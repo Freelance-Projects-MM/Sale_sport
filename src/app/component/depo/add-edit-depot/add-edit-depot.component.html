@@ -1,1 +1,42 @@
-<p>add-edit-depot works!</p>
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Ajouter un nouveau dépôt</h4>
+      <button
+        type="button"
+        class="btn btn-success " (click)="saveDepot()"
+      >
+       Enregistrer
+      </button>
+
+    </div>
+    <div class="container">
+      <form [formGroup]="depotGroup" class="row">
+        <div class="input-group input-group-sm col-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Code</span>
+          </div>
+          <input type="text" class="form-control" formControlName="code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm col-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm2">Libelle</span>
+          </div>
+          <input type="text" class="form-control" formControlName="libelle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm col-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm3">Ville</span>
+          </div>
+          <input type="text" class="form-control" formControlName="ville" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+      </form>
+
+    </div>
+
+
+
+
+  </div>
+</div>

@@ -1,12 +1,12 @@
 <div class="card" style="background-color: white">
   <div class="card-body">
     <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
-      <h4 class="card-title">Liste des produit</h4>
+      <h4 class="card-title">Liste des clients</h4>
       <button
         type="button"
-        class="btn btn-success" (click)="addProduit()"
+        class="btn btn-success" (click)="addTier()"
       >
-        Ajouter un produit
+        Ajouter un depot
       </button>
     </div>
 
@@ -14,32 +14,32 @@
       <thead>
       <tr>
         <th class="text-dark font-medium fs-4">#</th>
-        <th class="text-dark font-medium fs-4">Code</th>
-        <th class="text-dark font-medium fs-4">Libelle</th>
-        <th class="text-dark font-medium fs-4">PrixVente</th>
-        <th class="text-dark font-medium fs-4">Quantite initiale</th>
-        <th class="text-dark font-medium fs-4">Depot</th>
+        <th class="text-dark font-medium fs-4">Nom</th>
+        <th class="text-dark font-medium fs-4">Prenom</th>
+        <th class="text-dark font-medium fs-4">Téléphone</th>
+        <th class="text-dark font-medium fs-4">Email</th>
+        <th class="text-dark font-medium fs-4">Adress</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor='let tr of listProduit; index as i'>
+      <tr *ngFor='let tr of tierList; index as i'>
         <td>
           {{ i + 1 }}
         </td>
         <td>
-          {{tr.code}}
+          {{tr.nom}}
         </td>
         <td>
-          {{tr.libell}}
+          {{tr.prenom}}
         </td>
         <td>
-          {{tr.prixVente}}
+          {{tr.numeroTel}}
         </td>
         <td>
-          {{tr.quantiteInitiale}}
+          {{tr.email}}
         </td>
         <td>
-          {{getDepotCode(tr.depot)}}
+          {{tr.adress}}
         </td>
       </tr>
       </tbody>

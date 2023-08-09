@@ -1,4 +1,4 @@
-export class Depot {
+export class DepotModel {
   id?:number;
   code?:string;
   libelle?:string;

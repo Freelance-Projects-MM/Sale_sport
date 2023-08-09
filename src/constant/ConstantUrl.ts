@@ -1,6 +1,9 @@
 export class URLS {
   static serverPath = "http://localhost:9098";
   static login = this.serverPath + "/login";
-  static listDepot = this.serverPath + "/api/depot";
+  static depot = this.serverPath + "/api/depot";
+  static tier = this.serverPath + "/api/tier";
+  static produit = this.serverPath + "/api/produit";
+  static listUsers = this.serverPath + "/api/users";
 
 }

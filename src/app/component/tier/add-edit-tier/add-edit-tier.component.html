@@ -1,0 +1,59 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Ajouter un nouveau dépôt</h4>
+      <button
+        type="button"
+        class="btn btn-success " (click)="saveTier()"
+      >
+        Enregistrer
+      </button>
+
+    </div>
+    <div class="container">
+      <form [formGroup]="tierGroup" >
+        <div class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Nom</span>
+            </div>
+            <input type="text" class="form-control" formControlName="nom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm12">Prénom</span>
+            </div>
+            <input type="text" class="form-control" formControlName="prenom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm13">Téléphone</span>
+            </div>
+            <input type="number" class="form-control" formControlName="numeroTel" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+        <div style="margin-top: 2%" class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm2">Email</span>
+            </div>
+            <input type="text" class="form-control" formControlName="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm3">Adress</span>
+            </div>
+            <input type="text" class="form-control" formControlName="adress" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+
+
+
+  </div>
+</div>
