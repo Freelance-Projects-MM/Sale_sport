@@ -17,6 +17,8 @@ import {TierListComponent} from "./tier/tier-list/tier-list.component";
 import {AddEditTierComponent} from "./tier/add-edit-tier/add-edit-tier.component";
 import {ListProduitsComponent} from "./produits/list-produits/list-produits.component";
 import {AddUpdateProduitComponent} from "./produits/add-update-produit/add-update-produit.component";
+import {ListFactureComponent} from "./facture/list-facture/list-facture.component";
+import {AddEditFactureComponent} from "./facture/add-edit-facture/add-edit-facture.component";
 
 
 export const ComponentsRoutes: Routes = [
@@ -89,6 +91,14 @@ export const ComponentsRoutes: Routes = [
       ,{
         path:'addProduits',
         component : AddUpdateProduitComponent
+      },
+      {
+        path:'listFacture',
+        component : ListFactureComponent
+      },
+      {
+        path:'addFacture',
+        component : AddEditFactureComponent
       }
     ]
   }

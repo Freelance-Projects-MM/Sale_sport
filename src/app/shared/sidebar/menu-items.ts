@@ -150,6 +150,13 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  }  ,{
+    path: '/component/listFacture',
+    title: 'Facture',
+    icon: 'bi bi-clipboard2-check',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 
 ];

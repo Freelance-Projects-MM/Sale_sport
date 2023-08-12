@@ -10,9 +10,9 @@
       </button>
     </div>
 
-    <table class="table table-bordered table-hover" >
+    <table class="table table-bordered table-hover"  >
       <thead>
-      <tr>
+      <tr class="tableBAckround">
         <th style="background-color: white" class="text-dark font-medium fs-4">#</th>
         <th class="text-dark font-medium fs-4">Code</th>
         <th class="text-dark font-medium fs-4">Libelle</th>
@@ -20,11 +20,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor='let tr of listDepot; index as i'>
+      <tr style="background-color: white" class="tableBAckround"  *ngFor='let tr of listDepot; index as i'>
         <td>
           {{ i + 1 }}
         </td>
-        <td>
+        <td >
           {{tr.code}}
         </td>
         <td>

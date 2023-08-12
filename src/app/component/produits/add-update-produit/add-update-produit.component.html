@@ -47,13 +47,12 @@
           </div>
           <div class="input-group input-group-sm col-sm">
 
-            <label>Statut <span>*</span></label>
-            <ng-select  formControlName="depot">
-              <ng-option *ngFor="let option of cities"
-                         [value]="option">
-                {{ option.name }}
-              </ng-option>
-            </ng-select>
+
+            <select class="minimal" formControlName="depot" (change)="changeDepotVal()">
+              <option *ngFor="let depot of listDepot" [value]="depot.code">
+                {{depot.code}}
+              </option>
+            </select>
           </div>
         </div>
 

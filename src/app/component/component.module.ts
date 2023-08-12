@@ -22,6 +22,8 @@ import { ListDepoComponent } from './depo/list-depo/list-depo.component';
 import { AddEditDepotComponent } from './depo/add-edit-depot/add-edit-depot.component';
 import { TierListComponent } from './tier/tier-list/tier-list.component';
 import { AddEditTierComponent } from './tier/add-edit-tier/add-edit-tier.component';
+import { ListFactureComponent } from './facture/list-facture/list-facture.component';
+import { AddEditFactureComponent } from './facture/add-edit-facture/add-edit-facture.component';
 
 @NgModule({
   imports: [
@@ -48,7 +50,9 @@ import { AddEditTierComponent } from './tier/add-edit-tier/add-edit-tier.compone
     ListDepoComponent,
     AddEditDepotComponent,
     TierListComponent,
-    AddEditTierComponent
+    AddEditTierComponent,
+    ListFactureComponent,
+    AddEditFactureComponent
   ]
 })
 export class ComponentsModule { }

@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {TierService} from "../../tier/tier.service";
 import {ProduitModel} from "../ProduitModel";
 import {ProduitsService} from "../produits.service";
+import {DepotModel} from "../../depo/DepotModel";
+import {DepotService} from "../../depo/depot.service";
 
 @Component({
   selector: 'app-add-update-produit',
@@ -12,7 +14,9 @@ import {ProduitsService} from "../produits.service";
 })
 export class AddUpdateProduitComponent implements OnInit {
   produitGroupe!:FormGroup;
-  produitModel:ProduitModel={}
+  produitModel:ProduitModel={};
+  listDepot : DepotModel[]=[];
+
   cities = [
     {id: 1, name: 'Vilnius'},
     {id: 2, name: 'Kaunas'},
@@ -20,8 +24,8 @@ export class AddUpdateProduitComponent implements OnInit {
     {id: 4, name: 'Pabradė'},
     {id: 5, name: 'Klaipėda'}
   ];
-  constructor(private formBuilder:FormBuilder,private route:Router,private produitService:ProduitsService) { }
-  get nom(){
+  constructor(private formBuilder:FormBuilder,private route:Router,private produitService:ProduitsService,private depotService:DepotService) { }
+  get code(){
     return this.produitGroupe.get('code')
   }
 
@@ -51,9 +55,22 @@ export class AddUpdateProduitComponent implements OnInit {
       depot:[null,Validators.required],
 
     })
+    this.getListDepot();
   }
   saveProduit(){
-    this.produitModel.code=this.nom?.value;
+    this.produitModel.code = this.code?.value;
+    this.produitModel.libell = this.libell?.value;
+    this.produitModel.prixVente = this.prixVente?.value;
+    this.produitModel.quantite = this.quantite?.value;
+    this.produitModel.quantiteInitiale = this.quantiteInitiale?.value;
+    this.produitModel.depot = this.listDepot.filter(d => d.code === this.depot?.value)[0];
+    this.produitService.saveProduit(this.produitModel).subscribe(res => {
+      console.log(res);
+      this.route.navigateByUrl("/component/produit")
+    })
+
+  }
+   /* this.produitModel.code=this.nom?.value;
     this.produitModel.libell=this.libell?.value;
     this.produitModel.quantite=this.quantite?.value;
     this.produitModel.quantiteInitiale=this.quantiteInitiale?.value;
@@ -62,6 +79,16 @@ export class AddUpdateProduitComponent implements OnInit {
     this.produitService.saveProduit(this.produitModel).subscribe(res => {
       this.route.navigateByUrl("component/produit")
     })
+  }*/
+  getListDepot(){
+    this.depotService.listDepot().subscribe(res => {
+      console.log(res)
+      this.listDepot = res;
+    })
+  }
+  changeDepotVal(){
+
+   console.log(this.produitModel)
   }
 
 }

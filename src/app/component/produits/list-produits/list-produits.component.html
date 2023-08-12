@@ -12,7 +12,7 @@
 
     <table class="table table-bordered table-hover">
       <thead>
-      <tr>
+      <tr class="tableBAckround">
         <th class="text-dark font-medium fs-4">#</th>
         <th class="text-dark font-medium fs-4">Code</th>
         <th class="text-dark font-medium fs-4">Libelle</th>
@@ -22,7 +22,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor='let tr of listProduit; index as i'>
+      <tr class="tableBAckround" *ngFor='let tr of listProduit; index as i'>
         <td>
           {{ i + 1 }}
         </td>

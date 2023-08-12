@@ -6,5 +6,5 @@ export class ProduitModel {
   prixVente?:number;
   quantite?:number;
   quantiteInitiale?:number;
-  depot?:DepotModel;
+  depot?:DepotModel={};
 }
