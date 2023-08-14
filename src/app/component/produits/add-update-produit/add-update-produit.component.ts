@@ -56,6 +56,8 @@ export class AddUpdateProduitComponent implements OnInit {
 
     })
     this.getListDepot();
+
+
   }
   saveProduit(){
     this.produitModel.code = this.code?.value;
@@ -69,6 +71,9 @@ export class AddUpdateProduitComponent implements OnInit {
       this.route.navigateByUrl("/component/produit")
     })
 
+  }
+  returnToListProduit(){
+    this.route.navigateByUrl("/component/produit")
   }
    /* this.produitModel.code=this.nom?.value;
     this.produitModel.libell=this.libell?.value;

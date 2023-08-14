@@ -50,5 +50,8 @@ tierModel:TierModel={}
       this.route.navigateByUrl("component/client")
     })
   }
+  returnToListTier(){
+  this.route.navigateByUrl("/component/client")
+  }
 
 }

@@ -1,0 +1,55 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Liste des produit</h4>
+      <button
+        type="button"
+        class="btn btn-success" (click)="addFacture()"
+      >
+        Ajouter une facture
+      </button>
+    </div>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr class="tableBAckround">
+        <th class="text-dark font-medium fs-4">#</th>
+        <th class="text-dark font-medium fs-4">Numéro</th>
+        <th class="text-dark font-medium fs-4">Date</th>
+        <th class="text-dark font-medium fs-4">Status</th>
+        <th class="text-dark font-medium fs-4">Status Paiement</th>
+        <th class="text-dark font-medium fs-4">Prix total</th>
+        <th class="text-dark font-medium fs-4">Client</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="tableBAckround" *ngFor='let tr of listFacture; index as i'>
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td>
+          {{tr.numero}}
+        </td>
+        <td>
+          {{tr.dateFacture}}
+        </td>
+        <td>
+          {{tr.statusFacture}}
+        </td>
+        <td>
+          {{tr.statusPaiementFacture}}
+        </td>
+        <td>
+          {{tr.prixTotale}}
+        </td>
+        <td>
+          {{tr.client.nom}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+

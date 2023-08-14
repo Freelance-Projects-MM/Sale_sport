@@ -29,6 +29,9 @@ get ville(){
       ville : [null,Validators.required]
     })
   }
+  returnToListDepot(){
+    this.route.navigateByUrl("/component/depot")
+  }
   saveDepot(){
     this.depotModel.code = this.code?.value;
     this.depotModel.libelle = this.libelle?.value;
