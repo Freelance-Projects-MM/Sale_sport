@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/* Example of overriding default ng-select styles */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.ng-select{
+  width: 100%;
+}
+.card{
+  max-height: calc(100vh - 454px);
+  min-height: calc(100vh - 124px);
+}
+
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800');
 .tableBackroundColor{

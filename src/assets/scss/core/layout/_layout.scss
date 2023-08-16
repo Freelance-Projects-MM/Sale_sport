@@ -13,11 +13,12 @@
   background: $body-bg;
   position: relative;
   transition: 0.2s ease-in;
+  min-height: calc(100vh - 113px);
 }
 
 .page-wrapper > .container-fluid {
   padding: 20px;
-  min-height: calc(100vh - 180px);
+
   max-width: $page-wrapper-max-width;
   margin: 0 auto;
 }

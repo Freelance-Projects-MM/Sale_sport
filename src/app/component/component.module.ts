@@ -24,11 +24,13 @@ import { TierListComponent } from './tier/tier-list/tier-list.component';
 import { AddEditTierComponent } from './tier/add-edit-tier/add-edit-tier.component';
 import { ListFactureComponent } from './facture/list-facture/list-facture.component';
 import { AddEditFactureComponent } from './facture/add-edit-facture/add-edit-facture.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(ComponentsRoutes),
+    NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,

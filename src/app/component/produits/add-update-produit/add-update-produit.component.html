@@ -20,6 +20,8 @@
     </div>
     <div class="container">
       <form [formGroup]="produitGroupe" >
+
+
         <div class="row">
           <div class="input-group input-group-sm col-sm">
             <div class="input-group-prepend">
@@ -54,13 +56,12 @@
             <input type="text" class="form-control" formControlName="quantite" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
           <div class="input-group input-group-sm col-sm">
+            <ng-select [items]="listDepot"
+                       [searchable]="true"
+                       bindLabel="code"
+                       formControlName="depot">
+            </ng-select>
 
-
-            <select title="selectionnez un depot" class="minimal" formControlName="depot" (change)="changeDepotVal()">
-              <option *ngFor="let depot of listDepot" [value]="depot.code">
-                {{depot.code}}
-              </option>
-            </select>
           </div>
         </div>
 
@@ -74,3 +75,4 @@
 
   </div>
 </div>
+

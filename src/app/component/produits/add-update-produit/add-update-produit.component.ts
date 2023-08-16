@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {TierService} from "../../tier/tier.service";
 import {ProduitModel} from "../ProduitModel";
@@ -17,13 +17,7 @@ export class AddUpdateProduitComponent implements OnInit {
   produitModel:ProduitModel={};
   listDepot : DepotModel[]=[];
 
-  cities = [
-    {id: 1, name: 'Vilnius'},
-    {id: 2, name: 'Kaunas'},
-    {id: 3, name: 'Pavilnys', disabled: true},
-    {id: 4, name: 'Pabradė'},
-    {id: 5, name: 'Klaipėda'}
-  ];
+
   constructor(private formBuilder:FormBuilder,private route:Router,private produitService:ProduitsService,private depotService:DepotService) { }
   get code(){
     return this.produitGroupe.get('code')
@@ -46,6 +40,7 @@ export class AddUpdateProduitComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getListDepot();
     this.produitGroupe = this.formBuilder.group({
       code:[null,Validators.required],
       libell:[null,Validators.required],
@@ -55,9 +50,20 @@ export class AddUpdateProduitComponent implements OnInit {
       depot:[null,Validators.required],
 
     })
-    this.getListDepot();
+    this.depot?.setValue(this.listDepot[0]);
 
 
+
+
+
+
+this.changeVal()
+
+  }
+  changeVal(){
+    this.produitGroupe.valueChanges.subscribe(res => {
+      console.log(res)
+    })
   }
   saveProduit(){
     this.produitModel.code = this.code?.value;
@@ -65,7 +71,7 @@ export class AddUpdateProduitComponent implements OnInit {
     this.produitModel.prixVente = this.prixVente?.value;
     this.produitModel.quantite = this.quantite?.value;
     this.produitModel.quantiteInitiale = this.quantiteInitiale?.value;
-    this.produitModel.depot = this.listDepot.filter(d => d.code === this.depot?.value)[0];
+    this.produitModel.depot = this.depot?.value;
     this.produitService.saveProduit(this.produitModel).subscribe(res => {
       console.log(res);
       this.route.navigateByUrl("/component/produit")
@@ -91,9 +97,6 @@ export class AddUpdateProduitComponent implements OnInit {
       this.listDepot = res;
     })
   }
-  changeDepotVal(){
 
-   console.log(this.produitModel)
-  }
 
 }
