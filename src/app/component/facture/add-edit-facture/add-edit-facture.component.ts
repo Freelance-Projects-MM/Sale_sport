@@ -16,8 +16,8 @@ export class AddEditFactureComponent implements OnInit {
 factureGroup!:FormGroup;
   listProduit:ProduitModel[]=[]
   tierList:TierModel[]=[];
-  listStatusFacture=['VALID','BROUILLON'];
   listStatusPaiement=[{code:'NON_PAIE',value:'Non paie'},{code:'PAIE',value:'Paie'}];
+  listStatusFacture=[{code:'VALID',value:'Valide'},{code:'BROUILLON',value:'Brouillon'}];
   //@ViewChild('selectFrom') inputFocus:NgSelectComponent;
   @ViewChild('selectFrom') ngSelectStatusFact!:NgSelectComponent;
 

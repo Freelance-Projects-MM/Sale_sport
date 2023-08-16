@@ -153,7 +153,7 @@ export const ROUTES: RouteInfo[] = [
   }  ,{
     path: '/component/listFacture',
     title: 'Facture',
-    icon: 'bi bi-clipboard2-check',
+    icon: 'bi bi-file-text',
     class: '',
     extralink: false,
     submenu: []
