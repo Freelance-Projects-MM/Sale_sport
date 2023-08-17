@@ -16,4 +16,7 @@ export class FactureService {
   listFacture():Observable<any>{
     return this.http.get(URLS.facture);
   }
+  deleteFacture(factureId:number):Observable<any>{
+    return this.http.delete(URLS.facture+'/'+factureId,{responseType:'text'});
+  }
 }

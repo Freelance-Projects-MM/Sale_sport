@@ -9,8 +9,8 @@
         Ajouter un client
       </button>
     </div>
-
-    <table class="table table-bordered table-hover">
+    <h4 style="text-align: center" *ngIf="tierList.length===0">Merci d'ajouter un client </h4>
+    <table *ngIf="tierList.length!==0" class="table table-bordered table-hover">
       <thead>
       <tr class="tableBAckround">
         <th class="text-dark font-medium fs-4">#</th>

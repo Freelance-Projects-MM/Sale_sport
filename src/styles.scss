@@ -8,7 +8,14 @@
   max-height: calc(100vh - 454px);
   min-height: calc(100vh - 124px);
 }
-
+.btnEdit{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
 
 
 

@@ -9,8 +9,9 @@
         Ajouter un produit
       </button>
     </div>
+    <h4 style="text-align: center" *ngIf="listProduit.length===0">Merci d'ajouter un produit </h4>
 
-    <table class="table table-bordered table-hover">
+    <table *ngIf="listProduit.length!==0" class="table table-bordered table-hover">
       <thead>
       <tr class="tableBAckround">
         <th class="text-dark font-medium fs-4">#</th>
@@ -18,6 +19,7 @@
         <th class="text-dark font-medium fs-4">Libelle</th>
         <th class="text-dark font-medium fs-4">PrixVente</th>
         <th class="text-dark font-medium fs-4">Quantite initiale</th>
+        <th class="text-dark font-medium fs-4">Quantite Restante</th>
         <th class="text-dark font-medium fs-4">Depot</th>
       </tr>
       </thead>
@@ -37,6 +39,9 @@
         </td>
         <td>
           {{tr.quantiteInitiale}}
+        </td>
+        <td>
+          {{tr.quantite}}
         </td>
         <td>
           {{getDepotCode(tr.depot)}}

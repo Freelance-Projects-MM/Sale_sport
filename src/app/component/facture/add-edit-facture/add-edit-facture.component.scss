@@ -8,8 +8,17 @@
   max-height: calc(100vh - 420px);
   overflow-y:scroll;
   overflow-x:hidden;
+}
+.cardDetailFactureWithAlert{
+  min-height: calc(100vh - 573px);
+  max-height: calc(100vh - 493px);
+}
+.cardDetailFactureGroupeWithAlert{
 
-
+  min-height: calc(100vh - 495px);
+  max-height: calc(100vh - 444px);
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 

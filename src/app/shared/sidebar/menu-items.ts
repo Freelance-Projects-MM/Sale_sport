@@ -123,6 +123,14 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/component/depot',
+    title: 'Depot',
+    icon: 'bi bi-people',
+    class: '',
+    extralink: false,
+    submenu: []
   }
   ,
   {
@@ -134,15 +142,6 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
 
-  {
-    path: '/component/depot',
-    title: 'Depot',
-    icon: 'bi bi-people',
-    class: '',
-    extralink: false,
-    submenu: []
-  }
-,
   {
     path: '/component/client',
     title: 'Client',

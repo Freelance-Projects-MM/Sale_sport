@@ -50,7 +50,8 @@ export class AddUpdateProduitComponent implements OnInit {
       depot:[null,Validators.required],
 
     })
-    this.depot?.setValue(this.listDepot[0]);
+    this.quantite?.disable();
+    this.onFormChanges();
 
 
 
@@ -63,6 +64,11 @@ this.changeVal()
   changeVal(){
     this.produitGroupe.valueChanges.subscribe(res => {
       console.log(res)
+    })
+  }
+  onFormChanges(){
+    this.quantiteInitiale?.valueChanges.subscribe(val =>{
+      this.quantite?.setValue(val);
     })
   }
   saveProduit(){

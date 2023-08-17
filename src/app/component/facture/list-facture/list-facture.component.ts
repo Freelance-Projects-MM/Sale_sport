@@ -25,6 +25,15 @@ listFacture:FactureModele[]=[];
   addFacture(){
 this.route.navigateByUrl("/component/addFacture")
   }
+  supprimerFacture(factureId:number){
+    this.factureService.deleteFacture(factureId).subscribe(res => {
+      console.log('hello succ')
+     this.getListFacture()
+    },error => {
+
+      console.log(error)
+    })
+  }
 
 
 }

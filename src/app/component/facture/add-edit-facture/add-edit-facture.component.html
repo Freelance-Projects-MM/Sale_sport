@@ -1,6 +1,7 @@
 <div class="card" style="background-color: white">
   <div class="card-body">
     <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+
       <h4 class="card-title" style="">Ajouter une facture</h4>
       <div style="display: flex">
         <button
@@ -17,6 +18,11 @@
         </button>
       </div>
 
+    </div>
+    <div>
+      <div class={{alertMessag.classAlert}} role="alert" *ngIf="showAlert">
+       {{alertMessag.message}}
+      </div>
     </div>
     <div class="container">
       <form [formGroup]="factureGroup">
@@ -56,7 +62,9 @@
 
           <div class="form-group col-sm">
             <label for="exampleFormControlInput1">Prix total</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="prixTotale">
+
+              <input type="number" class="form-control" id="exampleFormControlInput1" formControlName="prixTotale">
+
           </div>
 
           <!--
@@ -71,8 +79,8 @@
           -->
         </div>
         <h4 style="margin-top: 1%"> Produits</h4>
-        <div class="cardDetailFactureGroupe">
-          <div class="cardDetailFacture" >
+        <div  [ngClass]="!showAlert?'cardDetailFactureGroupe':'cardDetailFactureGroupeWithAlert'">
+          <div class="cardDetailFacture" [ngClass]="!showAlert ? 'cardDetailFacture':'cardDetailFactureWithAlert'">
 
             <div formArrayName='detailFactures' style="margin: auto" >
               <div *ngFor="let phone of detailFactures.controls; let i=index" [formGroupName]="i" >
@@ -100,7 +108,7 @@
                   <div class="form-group col-sm">
 
                     <input type="number" class="form-control" id="exampleFormControlInput281" placeholder="Prix" formControlName="prix"
-                           placeholder="area">
+                           >
                   </div>
                   <div class="form-group col-sm">
 
