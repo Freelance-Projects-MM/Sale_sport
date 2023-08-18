@@ -23,16 +23,19 @@ listFacture:FactureModele[]=[];
     })
   }
   addFacture(){
-this.route.navigateByUrl("/component/addFacture")
+//this.route.navigateByUrl("/component/addFacture")
+    this.route.navigate(['/component/addFacture'])
   }
-  supprimerFacture(factureId:number){
+  deleteFacture(factureId:number){
     this.factureService.deleteFacture(factureId).subscribe(res => {
-      console.log('hello succ')
      this.getListFacture()
     },error => {
 
       console.log(error)
     })
+  }
+  updateFacture(facture:FactureModele){
+    this.route.navigate(['/component/addFacture'],{state:facture})
   }
 
 
