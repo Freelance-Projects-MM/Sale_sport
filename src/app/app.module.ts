@@ -27,6 +27,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { LoginComponent } from './authentification/login/login.component';
 import { LogUpComponent } from './authentification/log-up/log-up.component';
 import {TokenInterceptorService} from "./authentification/token-interceptor.service";
+import {NgbdAlertBasicComponent} from "./component/alert/alert.component";
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 1,
@@ -53,6 +54,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+   // NgbdAlertBasicComponent,
     NgbModule,
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
     PerfectScrollbarModule,

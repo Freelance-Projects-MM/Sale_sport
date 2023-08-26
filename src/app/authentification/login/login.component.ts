@@ -10,7 +10,11 @@ import {AuthentificationService} from "../authentification.service";
 })
 export class LoginComponent implements OnInit {
   authentifictionGroup!:FormGroup;
-
+  showAlert=false;
+  alertMessag={
+    message:'',
+    classAlert:'alert alert-'
+  }
   constructor(private formBuilder: FormBuilder,private route:Router,private authentificationService:AuthentificationService) { }
   get email(){
     return this.authentifictionGroup.get('email');
@@ -34,8 +38,15 @@ export class LoginComponent implements OnInit {
     this.authentificationService.login(data).subscribe(res =>{
       console.log(res);
       if(res.status === 'true'){
+        this.alertMessag.classAlert = 'alert alert-success';
+        this.alertMessag.message = 'Connexion avec succes';
+        this.showAlert = true
         sessionStorage.setItem("token",res.access_Token);
         this.route.navigateByUrl('/dashboard');
+      }else{
+        this.showAlert = true
+        this.alertMessag.classAlert = 'alert alert-danger';
+        this.alertMessag.message = res.message;
       }
     })
 

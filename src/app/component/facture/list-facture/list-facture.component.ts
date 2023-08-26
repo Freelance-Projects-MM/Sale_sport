@@ -3,6 +3,7 @@ import {FactureModele} from "../FactureModele";
 import {FactureService} from "../facture.service";
 import {ProduitModel} from "../../produits/ProduitModel";
 import {Router} from "@angular/router";
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-list-facture',
@@ -25,6 +26,13 @@ listFacture:FactureModele[]=[];
   addFacture(){
 //this.route.navigateByUrl("/component/addFacture")
     this.route.navigate(['/component/addFacture'])
+  }
+  getPdfFacture(id:number,namePdf:string){
+this.factureService.pdfFacture(id).subscribe(res => {
+  const blob = new Blob([res], {type: 'application/pdf'});
+  FileSaver.saveAs(blob, namePdf);
+
+})
   }
   deleteFacture(factureId:number){
     this.factureService.deleteFacture(factureId).subscribe(res => {

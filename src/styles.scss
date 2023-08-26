@@ -8,6 +8,10 @@
   max-height: calc(100vh - 454px);
   min-height: calc(100vh - 124px);
 }
+.cardFixheight{
+  max-height:unset !important;
+  min-height:unset !important;
+}
 .btnEdit{
   display: flex;
   flex-direction: row;

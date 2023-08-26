@@ -5,6 +5,7 @@ export class DeatailFactureModele {
   quantite?:number;
   prix?:number;
   produits?:ProduitModel;
+  libelleProduit?:string;
 
 
 }

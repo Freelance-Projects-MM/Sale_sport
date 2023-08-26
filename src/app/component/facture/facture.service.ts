@@ -13,10 +13,18 @@ export class FactureService {
   saveFacture(factureModele:FactureModele):Observable<any>{
     return this.http.post(URLS.facture,factureModele);
   }
+
+  updateFacture(factureModele:FactureModele):Observable<any>{
+    return this.http.put(URLS.facture,factureModele);
+  }
   listFacture():Observable<any>{
     return this.http.get(URLS.facture);
   }
   deleteFacture(factureId:number):Observable<any>{
     return this.http.delete(URLS.facture+'/'+factureId,{responseType:'text'});
+  }
+  pdfFacture(factureId:number):Observable<Blob>{
+    return this.http.get(URLS.facture+'/generateFacture/'+factureId, {
+      responseType: 'blob'});
   }
 }

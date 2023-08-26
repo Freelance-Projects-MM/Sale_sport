@@ -64,6 +64,11 @@ factureGroup!:FormGroup;
   getListProduit(){
     this.produitService.listProduit().subscribe( res => {
       this.listProduit =res ;
+      this.listProduit.forEach(p => {
+        if(p.quantite===0){
+          p.disabled=true;
+        }
+      })
     })
   }
   ngOnInit(): void {
@@ -94,13 +99,16 @@ factureGroup!:FormGroup;
      if(this.factureModeleToUpdate.detailFactures !== undefined){
        this.factureModeleToUpdate.detailFactures.forEach( (detail:DeatailFactureModele) => {
          const details = this.formBuilder.group({
+           id:[detail.id],
            produits:[detail.produits,Validators.required],
            quantite:[detail.quantite,Validators.required],
-           prix:[detail.prix,Validators.required]
+           prix:[detail.prix,Validators.required],
+           libelleProduit:[detail.libelleProduit],
+           dateFacture:[detail.libelleProduit],
+           numero:[detail.libelleProduit]
          })
          this.detailFactures?.push(details);
        })
-
      }
      this.statusFacture?.setValue(this.listStatusFacture.filter(d => d.code === this.factureModeleToUpdate.statusFacture)[0])
       this.statusPaiementFacture?.setValue(this.listStatusPaiement.filter(d => d.code === this.factureModeleToUpdate.statusPaiementFacture)[0])
@@ -113,17 +121,31 @@ factureGroup!:FormGroup;
 this.route.navigateByUrl("/component/listFacture")
   }
   saveFacture(){
-    const facture = this.factureGroup.value as FactureModele;
-    console.log(this.factureGroup.value)
-    this.factureModele.client = facture.client;
-    this.factureModele.statusPaiementFacture = this.factureGroup.get('statusPaiementFacture')?.value.code;
-    this.factureModele.statusFacture = this.factureGroup.get('statusFacture')?.value.code;
-    this.factureModele.prixTotale = facture.prixTotale;
-    this.factureModele.detailFactures = facture.detailFactures;
-    this.factureService.saveFacture(this.factureModele).subscribe(res => {
-      console.log(res);
-      this.route.navigateByUrl("/component/listFacture");
-    })
+    if(this.factureModeleToUpdate !== undefined ){
+      const facture = this.factureGroup.value as FactureModele;
+      facture.id=this.factureModeleToUpdate.id;
+      facture.statusPaiementFacture = this.factureGroup.get('statusPaiementFacture')?.value.code;
+      facture.statusFacture = this.factureGroup.get('statusFacture')?.value.code;
+      facture.dateFacture = this.factureModeleToUpdate.dateFacture;
+      facture.numero = this.factureModeleToUpdate.numero;
+      this.factureService.updateFacture(facture).subscribe(res => {
+        console.log(res);
+        this.route.navigateByUrl("/component/listFacture");
+      })
+    }else{
+      const facture = this.factureGroup.value as FactureModele;
+      console.log(this.factureGroup.value)
+      this.factureModele.client = facture.client;
+      this.factureModele.statusPaiementFacture = this.factureGroup.get('statusPaiementFacture')?.value.code;
+      this.factureModele.statusFacture = this.factureGroup.get('statusFacture')?.value.code;
+      this.factureModele.prixTotale = facture.prixTotale;
+      this.factureModele.detailFactures = facture.detailFactures;
+      this.factureService.saveFacture(this.factureModele).subscribe(res => {
+        console.log(res);
+        this.route.navigateByUrl("/component/listFacture");
+      })
+    }
+
 
   }
   listTier(){

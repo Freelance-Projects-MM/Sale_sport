@@ -22,9 +22,9 @@
                   <input id="inputPassword" type="password" placeholder="Password"     formControlName="password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                 </div>
                 <div class="custom-control custom-checkbox mb-3">
-                  <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-
-                  <label for="customCheck1" class="custom-control-label">Remember password</label>
+                  <div class={{alertMessag.classAlert}} role="alert" *ngIf="showAlert">
+                    {{alertMessag.message}}
+                  </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="connection()">Sign in</button>
                 <div class="text-center d-flex justify-content-between mt-4"><p>Snippet by <a href="https://bootstrapious.com/snippets" class="font-italic text-muted">
