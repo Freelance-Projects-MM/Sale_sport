@@ -1,13 +1,16 @@
 {
   "name": "nice-admin-angular",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron-build": "ng build --base-href ./ && electron ."
   },
   "private": true,
   "dependencies": {
@@ -62,6 +65,7 @@
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^14.0.13",
     "codelyzer": "^6.0.1",
+    "electron": "^26.1.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.2",

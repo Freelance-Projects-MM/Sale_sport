@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverPath:'https://fakestoreapi.com/products/'
+ // serverPath:'https://fakestoreapi.com/products/'
 };
 
 /*

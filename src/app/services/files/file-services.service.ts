@@ -7,7 +7,7 @@ import {environment} from "../../../environments/environment";
   providedIn: 'root'
 })
 export class FileServicesService {
-serverPath:string = environment.serverPath;
+serverPath:string = 'https://fakestoreapi.com/products/\'';
   constructor(private http:HttpClient) { }
 
   listFiles():Observable<any>{
