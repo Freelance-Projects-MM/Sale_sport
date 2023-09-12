@@ -20,6 +20,9 @@ export class FactureService {
   listFacture():Observable<any>{
     return this.http.get(URLS.facture);
   }
+  listFactureByWord(word:string):Observable<any>{
+    return this.http.get(URLS.facture+'/'+word);
+  }
   deleteFacture(factureId:number):Observable<any>{
     return this.http.delete(URLS.facture+'/'+factureId,{responseType:'text'});
   }

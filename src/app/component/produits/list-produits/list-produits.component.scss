@@ -4,3 +4,14 @@
     color: black;
   }
 }
+.cardDetailFacture{
+  min-height: calc(100vh - 420px);
+  max-height: calc(100vh - 234px);
+}
+.cardDetailFactureGroupe{
+
+  min-height: calc(100vh - 420px);
+  max-height: calc(100vh - 234px);
+  overflow-y:scroll;
+  overflow-x:hidden;
+}

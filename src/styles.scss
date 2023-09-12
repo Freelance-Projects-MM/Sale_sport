@@ -28,3 +28,25 @@
  background-color: black;
   color: black;
 }
+
+/* Target the entire scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* width of the vertical scrollbar */
+}
+
+/* Track - the background of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+  display: none;
+}
+
+/* Handle - the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the handle */
+  border-radius: 5px; /* round corners on the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the handle on hover */
+}
