@@ -31,6 +31,14 @@ export class ListProduitsComponent implements OnInit {
   getDepotCode(depot:DepotModel){
     return depot.code? depot.code:'';
   }
+  deleteProduit(id:number){
+    this.produitService.deleteProduit(id).subscribe(res => {
+      this.getListProduit()
+    }, error => {
+
+      console.log(error)
+    })
+  }
 
 
 }

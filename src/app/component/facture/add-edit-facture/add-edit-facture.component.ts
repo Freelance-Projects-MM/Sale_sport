@@ -16,70 +16,81 @@ import {FactureService} from "../facture.service";
   styleUrls: ['./add-edit-facture.component.scss']
 })
 export class AddEditFactureComponent implements OnInit {
-factureGroup!:FormGroup;
-  listProduit:ProduitModel[]=[]
-  tierList:TierModel[]=[];
-  showAlert=false
-  sommePrixTotals=0;
-  factureModele:FactureModele={};
-  factureModeleToUpdate:FactureModele={};
+  factureGroup!: FormGroup;
+  listProduit: ProduitModel[] = []
+  tierList: TierModel[] = [];
+  showAlert = false
+  sommePrixTotals = 0;
+  factureModele: FactureModele = {};
+  factureModeleToUpdate: FactureModele = {};
+  updateQuantite=false;
 
-  alertMessag={
-    message:'',
-    classAlert:'alert alert-'
+  alertMessag = {
+    message: '',
+    classAlert: 'alert alert-'
   }
-  listStatusPaiement=[{code:'NON_PAIE',value:'Non paie'},{code:'PAIE',value:'Paie'}];
-  listStatusFacture=[{code:'VALID',value:'Valide'},{code:'BROUILLON',value:'Brouillon'}];
+  listStatusPaiement = [{code: 'NON_PAIE', value: 'Non paie'}, {code: 'PAIE', value: 'Paie'}];
+  listStatusFacture = [{code: 'VALID', value: 'Valide'}, {code: 'BROUILLON', value: 'Brouillon'}];
   //@ViewChild('selectFrom') inputFocus:NgSelectComponent;
-  @ViewChild('selectFrom') ngSelectStatusFact!:NgSelectComponent;
+  @ViewChild('selectFrom') ngSelectStatusFact!: NgSelectComponent;
 
-  constructor(private factureService:FactureService,private formBuilder:FormBuilder,private route:Router,private tierService:TierService,private produitService:ProduitsService) {
+  constructor(private factureService: FactureService, private formBuilder: FormBuilder, private route: Router, private tierService: TierService, private produitService: ProduitsService) {
 
     console.log(this.route?.getCurrentNavigation()?.extras.state);
-    if(this.route?.getCurrentNavigation()?.extras !== null){
+    if (this.route?.getCurrentNavigation()?.extras !== null) {
       this.factureModeleToUpdate = this.route?.getCurrentNavigation()?.extras.state as FactureModele;
+
+
 
     }
 
 
   }
-  get client(){
+
+  get client() {
     return this.factureGroup.get('client');
   }
-  get dateFacture(){
+
+  get dateFacture() {
     return this.factureGroup.get('dateFacture');
   }
-  get statusFacture(){
+
+  get statusFacture() {
     return this.factureGroup.get('statusFacture');
   }
-  get statusPaiementFacture(){
+
+  get statusPaiementFacture() {
     return this.factureGroup.get('statusPaiementFacture');
   }
-  get prixTotale(){
+
+  get prixTotale() {
     return this.factureGroup.get('prixTotale');
   }
-  get detailFactures(){
+
+  get detailFactures() {
     return this.factureGroup.get('detailFactures') as FormArray;
   }
-  getListProduit(){
-    this.produitService.listProduit().subscribe( res => {
-      this.listProduit =res ;
+
+  getListProduit() {
+    this.produitService.listProduit().subscribe(res => {
+      this.listProduit = res;
       this.listProduit.forEach(p => {
-        if(p.quantite===0){
-          p.disabled=true;
+        if (p.quantite === 0) {
+          p.disabled = true;
         }
       })
     })
   }
+
   ngOnInit(): void {
 
     this.factureGroup = this.formBuilder.group({
-      client:[null,Validators.required],
-      dateFacture:[null,Validators.required],
-      statusFacture:[null,Validators.required],
-      statusPaiementFacture:[null,Validators.required],
-      prixTotale:[0,Validators.required],
-      detailFactures:this.formBuilder.array([])
+      client: [null, Validators.required],
+      dateFacture: [null, Validators.required],
+      statusFacture: [null, Validators.required],
+      statusPaiementFacture: [null, Validators.required],
+      prixTotale: [0, Validators.required],
+      detailFactures: this.formBuilder.array([])
 
 
     })
@@ -89,41 +100,45 @@ factureGroup!:FormGroup;
     this.listTier()
     this.addProduitToDetaillFacture()
     this.updateFacture();
+
   }
-  updateFacture(){
-    if(this.factureModeleToUpdate !== null && this.factureModeleToUpdate !== undefined){
+
+  updateFacture() {
+    if (this.factureModeleToUpdate !== null && this.factureModeleToUpdate !== undefined) {
       this.detailFactures.clear();
       this.prixTotale?.setValue(this.factureModeleToUpdate.prixTotale);
-     this.client?.setValue(this.factureModeleToUpdate.client);
+      this.client?.setValue(this.factureModeleToUpdate.client);
 
-     if(this.factureModeleToUpdate.detailFactures !== undefined){
-       this.factureModeleToUpdate.detailFactures.forEach( (detail:DeatailFactureModele) => {
-         const details = this.formBuilder.group({
-           id:[detail.id],
-           produits:[detail.produits,Validators.required],
-           quantite:[detail.quantite,Validators.required],
-           prix:[detail.prix,Validators.required],
-           libelleProduit:[detail.libelleProduit],
-           dateFacture:[detail.libelleProduit],
-           numero:[detail.libelleProduit]
-         })
-         this.detailFactures?.push(details);
-       })
-     }
-     this.statusFacture?.setValue(this.listStatusFacture.filter(d => d.code === this.factureModeleToUpdate.statusFacture)[0])
+      if (this.factureModeleToUpdate.detailFactures !== undefined) {
+        this.factureModeleToUpdate.detailFactures.forEach((detail: DeatailFactureModele,index) => {
+          const details = this.formBuilder.group({
+            id: [detail.id],
+            produits: [detail.produits, Validators.required],
+            quantite: [detail.quantite, Validators.required],
+            prix: [detail.prix, Validators.required],
+            libelleProduit: [detail.libelleProduit],
+            dateFacture: [detail.libelleProduit],
+            numero: [detail.libelleProduit]
+          })
+          this.detailFactures?.push(details);
+          //this.verifIsEmpty(index)
+        })
+      }
+      this.statusFacture?.setValue(this.listStatusFacture.filter(d => d.code === this.factureModeleToUpdate.statusFacture)[0])
       this.statusPaiementFacture?.setValue(this.listStatusPaiement.filter(d => d.code === this.factureModeleToUpdate.statusPaiementFacture)[0])
     }
     //this.factureGroup.reset();
 
   }
 
-  returnToListFacture(){
-this.route.navigateByUrl("/component/listFacture")
+  returnToListFacture() {
+    this.route.navigateByUrl("/component/listFacture")
   }
-  saveFacture(){
-    if(this.factureModeleToUpdate !== undefined ){
-      const facture = this.factureGroup.value as FactureModele;
-      facture.id=this.factureModeleToUpdate.id;
+
+  saveFacture() {
+    const facture = this.factureGroup.value as FactureModele;
+    if (this.factureModeleToUpdate !== undefined) {
+      facture.id = this.factureModeleToUpdate.id;
       facture.statusPaiementFacture = this.factureGroup.get('statusPaiementFacture')?.value.code;
       facture.statusFacture = this.factureGroup.get('statusFacture')?.value.code;
       facture.dateFacture = this.factureModeleToUpdate.dateFacture;
@@ -132,8 +147,8 @@ this.route.navigateByUrl("/component/listFacture")
         console.log(res);
         this.route.navigateByUrl("/component/listFacture");
       })
-    }else{
-      const facture = this.factureGroup.value as FactureModele;
+    }
+    else {
       console.log(this.factureGroup.value)
       this.factureModele.client = facture.client;
       this.factureModele.statusPaiementFacture = this.factureGroup.get('statusPaiementFacture')?.value.code;
@@ -148,43 +163,48 @@ this.route.navigateByUrl("/component/listFacture")
 
 
   }
-  listTier(){
+
+  listTier() {
     this.tierService.getListTier().subscribe(res => {
       this.tierList = res;
     })
   }
-  detailFactureData(){
+
+  detailFactureData() {
     const details = this.formBuilder.group({
-      produits:[null,Validators.required],
-      quantite:[null,Validators.required],
-    prix:[null]
+      produits: [null, Validators.required],
+      quantite: [null, Validators.required],
+      prix: [null]
     })
     return details;
   }
+
   addProduitToDetaillFacture() {
 
     this.detailFactures.push(this.detailFactureData());
   }
 
-  deleteProduitFromDetailFacture(i:any) {
+  deleteProduitFromDetailFacture(i: any) {
     this.detailFactures.removeAt(i)
+    console.log( this.detailFactures)
   }
-  onFormChangesFacture(){
+
+  onFormChangesFacture() {
     this.detailFactures.valueChanges.subscribe(val => {
       this.sommePrixTotals = 0;
       this.prixTotale?.enable();
-      val.forEach((det:DeatailFactureModele) => {
-        if((det.quantite !== undefined && det?.produits?.quantite !== undefined )&&(det?.quantite>det?.produits?.quantite)){
-          this.alertMessag.classAlert='alert alert-danger';
-          this.alertMessag.message='la quantite du produit '+det.produits.libell + ' doit étre inférieur à '+det.produits.quantite
+      val.forEach((det: DeatailFactureModele) => {
+        if ((det.quantite !== undefined && det?.produits?.quantite !== undefined) && (det?.quantite > det?.produits?.quantite)) {
+          this.alertMessag.classAlert = 'alert alert-danger';
+          this.alertMessag.message = 'la quantite du produit ' + det.produits.libell + ' doit étre inférieur à ' + det.produits.quantite
           this.showAlert = true
-          setTimeout(()=>{
+          setTimeout(() => {
             this.showAlert = false
-          },5000)
+          }, 5000)
         }
-        if(det.prix !==undefined && det.quantite !== undefined ){
+        if (det.prix !== undefined && det.quantite !== undefined) {
           const prixToTalProduits = (det.prix * det.quantite);
-          this.sommePrixTotals +=prixToTalProduits;
+          this.sommePrixTotals += prixToTalProduits;
 
           this.prixTotale?.setValue(this.sommePrixTotals);
         }
@@ -194,8 +214,21 @@ this.route.navigateByUrl("/component/listFacture")
     })
 
   }
-  calculerPrixTotal(){
 
+  getPrduitPrix(i: number) {
+    console.log(i)
+    console.log(this.detailFactures.at(i).value);
+    const prodSelc = this.detailFactures.at(i).get('produits')?.value;
+    this.detailFactures.at(i).get('prix')?.setValue(prodSelc.prixVente)
+    this.detailFactures.at(i).get('quantite')?.setValue(prodSelc.quantite)
+
+  }
+  verifIsEmpty(i: number){
+    console.log(i)
+    console.log(this.detailFactures.at(i).value);
+    const prodSelc = this.detailFactures.at(i).get('produits')?.value;
+
+      this.detailFactures.at(i).get('quantite')?.disable();
   }
 
 

@@ -17,4 +17,8 @@ export class ProduitsService {
   saveProduit(produit:ProduitModel):Observable<any>{
     return this.http.post(URLS.produit,produit);
   }
+
+  deleteProduit(factureId:number):Observable<any>{
+    return this.http.delete(URLS.produit+'/'+factureId,{responseType:'text'});
+  }
 }
